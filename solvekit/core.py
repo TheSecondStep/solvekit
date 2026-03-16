@@ -6,6 +6,7 @@
 __all__ = ['add_btn']
 
 # %% ../nbs/00_core.ipynb #7e897fb8
+import os
 import json
 import time
 from textwrap import dedent
@@ -13,6 +14,14 @@ from typing import Literal
 
 import httpx
 from dialoghelper.core import iife
+
+# %% ../nbs/00_core.ipynb #976b741f
+def _require_solveit():
+    """Check if running inside a solveit environment. Print a warning and return `False` if not."""
+    if not os.environ.get('IN_SOLVEIT'):
+        print('solvekit: Not running inside solveit, skipping.')
+        return False
+    return True
 
 # %% ../nbs/00_core.ipynb #927d2d47
 def _ensure_toolbar():
@@ -73,6 +82,7 @@ def add_btn(
     lang:Literal['py', 'js']='py'  # Whether `onclick` is Python or JavaScript
 ):
     """Add a custom button to the solveit toolbar inside the shared button group."""
+    if not _require_solveit(): return
     _ensure_toolbar()
     icon = _resolve_icon(icon)
 

@@ -6,5 +6,6 @@ d = { 'settings': { 'branch': 'main',
                 'git_url': 'https://github.com/TheSecondStep/solvekit',
                 'lib_path': 'solvekit'},
   'syms': { 'solvekit.core': { 'solvekit.core._ensure_toolbar': ('core.html#_ensure_toolbar', 'solvekit/core.py'),
+                               'solvekit.core._require_solveit': ('core.html#_require_solveit', 'solvekit/core.py'),
                                'solvekit.core._resolve_icon': ('core.html#_resolve_icon', 'solvekit/core.py'),
                                'solvekit.core.add_btn': ('core.html#add_btn', 'solvekit/core.py')}}}
