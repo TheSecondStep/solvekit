@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "solvekit"
+  site-url: "https://TheSecondStep.github.io/solvekit"
+  description: "Toolkit for extending solveit dialogs with custom toolbar buttons and dialog operations"
+  repo-branch: main
+  repo-url: "https://github.com/TheSecondStep/solvekit"

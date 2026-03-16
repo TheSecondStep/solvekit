@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "solvekit"
+dynamic = ["version"]
+description = "Toolkit for extending solveit dialogs with custom toolbar buttons and dialog operations"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [{name = "ChenBo", email = "c1697760747@gmail.com"}]
+keywords = ['solveit']
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = [
+    "httpx",
+    "dialoghelper",
+]
+
+[project.urls]
+Repository = "https://github.com/TheSecondStep/solvekit"
+Documentation = "https://TheSecondStep.github.io/solvekit/"
+
+[project.entry-points.nbdev]
+solvekit = "solvekit._modidx:d"
+
+[tool.setuptools.dynamic]
+version = {attr = "solvekit.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["solvekit"]
+
+[tool.nbdev]
