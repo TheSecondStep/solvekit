@@ -1,0 +1,62 @@
+[
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "solvekit.core",
+    "section": "",
+    "text": "SVG Icon Support: The icon parameter supports the 'ii:{prefix}:{name}' format, which automatically fetches SVG icons from the Iconify API. For example, 'ii:lucide:copy-plus' will request https://api.iconify.design/lucide/copy-plus.svg?height=16&width=16, with a default size of 16×16.\nsource",
+    "crumbs": [
+      "solvekit.core"
+    ]
+  },
+  {
+    "objectID": "core.html#examples",
+    "href": "core.html#examples",
+    "title": "solvekit.core",
+    "section": "Examples",
+    "text": "Examples\nDice Button\nAdds a toolbar button that rolls a random die. Click the button — it prints the result in a self-deleting code cell.\n\nadd_btn('dice', 'ii:lucide:dice-5', 'import random; dice_num = random.randint(1,6); print(f\"🎲 You rolled a {dice_num}!\"); time.sleep(dice_num)', 'Roll a dice!', lang='py')\n\nFastcore Docs Format Button\nAdds a toolbar button that reformats selected code cells into fastcore docs format. Select one or more code messages, then click the button — it creates a prompt asking SolveitAI to add docstrings and per-parameter comments to each function.\n\nfc_format = \"\"\"\n() =&gt; {\n    const ids = selectedMsgIds();\n    _post('upsert_msg', {\n        id_: '',\n        msg_type: 'prompt',\n        content: `Please create a new version of functions in msgs ${ids} which adds a docstring and also adds a comment after each parameter. This is known as fastcore docs format. So each parameter will need to be on a separate line. Try to make the overall structure look the same as the previous function with these characteristics.`,\n        is_input: '1',\n        cmd: 'upsert-shift-run'\n    });\n}\"\"\".strip()\n\n\nadd_btn('fc_format', 'ii:lucide:file-code', fc_format, 'Fastcore docs format', lang='js')",
+    "crumbs": [
+      "solvekit.core"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "solvekit",
+    "section": "",
+    "text": "Install latest from pypi:\n$ pip install solvekit\n\n\n\nDocumentation can be found hosted on this GitHub repository’s pages. Additionally you can find package manager specific guidelines on pypi respectively.",
+    "crumbs": [
+      "solvekit"
+    ]
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "solvekit",
+    "section": "",
+    "text": "Install latest from pypi:\n$ pip install solvekit\n\n\n\nDocumentation can be found hosted on this GitHub repository’s pages. Additionally you can find package manager specific guidelines on pypi respectively.",
+    "crumbs": [
+      "solvekit"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "solvekit",
+    "section": "How to use",
+    "text": "How to use\n\nfrom solvekit import *\n\nAdd a toolbar button by calling add_btn with a name, icon, code snippet, and tooltip. Here’s the simplest case — a single-line Python snippet:\n\nadd_btn('dice', 'ii:lucide:dice-5', 'import random; dice_num = random.randint(1,6); print(f\"🎲 You rolled a {dice_num}!\")', 'Roll a dice!', lang='py')\n\nFor longer scripts, use a triple-quoted string. This button picks a random answer and displays it with a short delay:\n\nadd_btn('magic8', '🔮', '''\nimport random\nimport time\nanswers = [\"It is certain! 🎉\",\"Ask again later 🤔\",\"Don't count on it 😬\",\"Absolutely! ✨\",\"Try again tomorrow 😴\",\"Without a doubt! 🚀\"]\nprint(f\"🔮 {random.choice(answers)}\")\ntime.sleep(5)\n''', 'Ask the Magic 8-Ball', lang='py')\n\nButtons can also trigger AI prompts. This one asks the assistant to clean up the code cell above the current cursor position:\n\nadd_btn('cleanup', 'ii:lucide:wand-sparkles', '''\nawait add_msg(content=\"\"\"Please clean up the code above:\n\n1. **Fastcore docs format**: Add docstrings and a comment after each parameter (each param on its own line)\n2. **General cleanup**: Improve naming, simplify logic, remove duplication\n\nKeep the overall structure and behavior the same.\"\"\",\nmsg_type='prompt', run=True)\n''', 'Clean up code above', lang='py')\n\nThe same pattern works for any reusable prompt — here’s one that polishes prose and formatting:\n\nadd_btn('optimize', 'ii:lucide:pencil-line', '''\nawait add_msg(content=\"\"\"Please optimize the cell input above:\n\n1. **Clarity**: Make the content clearer and more concise\n2. **Structure**: Improve formatting and organization\n3. **Grammar & Style**: Fix any grammar issues and improve readability\n\nKeep the original intent and meaning the same.\"\"\",\nmsg_type='prompt', run=True)\n''', 'Optimize cell input above', lang='py')",
+    "crumbs": [
+      "solvekit"
+    ]
+  },
+  {
+    "objectID": "index.html#next-steps",
+    "href": "index.html#next-steps",
+    "title": "solvekit",
+    "section": "## Next steps",
+    "text": "## Next steps\nadd_btn gives you a single toolbar button — useful, but real workflows need more. Here’s where solvekit is headed:\nDropdown menus. A single toolbar icon that expands into a list of actions, perfect for storing frequently-used prompts.\nToken usage bar. A live progress bar showing context window consumption for the current session.\nJS helper library. Clean wrappers around solveit internals — solvekit.run_msg(), solvekit.upsert_msg() — so custom buttons are readable and concise, no guessing at private APIs.",
+    "crumbs": [
+      "solvekit"
+    ]
+  }
+]
